@@ -31,8 +31,8 @@ namespace ofxImGui
 
 		io.RenderDrawListsFn = rendererDrawLists;
 
-		io.SetClipboardTextFn = &BaseEngine::setClipboardString;
-		io.GetClipboardTextFn = &BaseEngine::getClipboardString;
+		//io.SetClipboardTextFn = &BaseEngine::setClipboardString;
+		//io.GetClipboardTextFn = &BaseEngine::getClipboardString;
 
 		createDeviceObjects();
 

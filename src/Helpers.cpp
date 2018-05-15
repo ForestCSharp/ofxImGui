@@ -103,8 +103,12 @@ void ofxImGui::EndWindow(Settings& settings)
 
 	settings.windowBlock = false;
 
-	settings.windowPos = ImGui::GetWindowPos();
-	settings.windowSize = ImGui::GetWindowSize();
+	auto& WindowPos = ImGui::GetWindowPos();
+	settings.windowPos.x = WindowPos.x;
+	settings.windowPos.y = WindowPos.y;
+	auto& WindowSize = ImGui::GetWindowSize();
+	settings.windowSize.x = WindowSize.x;
+	settings.windowSize.y = WindowSize.y;
 	ImGui::End();
 
 	// Unlink the referenced ofParameter.
@@ -681,7 +685,10 @@ void ofxImGui::AddImage(ofBaseHasTexture& hasTexture, const ofVec2f& size)
 void ofxImGui::AddImage(ofTexture& texture, const ofVec2f& size)
 {
 	ImTextureID textureID = (ImTextureID)(uintptr_t)texture.texData.textureID;
-	ImGui::Image(textureID, size);
+	ImVec2 Size;
+	Size.x = size.x;
+	Size.y = size.y;
+	ImGui::Image(textureID, Size);
 }
 
 //--------------------------------------------------------------
