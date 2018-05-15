@@ -22,6 +22,7 @@ namespace ofxImGui
 	//--------------------------------------------------------------
 	void Gui::setup(BaseTheme* theme_)
 	{
+		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO();
 
 		io.DisplaySize = ImVec2((float)ofGetWidth(), (float)ofGetHeight());
@@ -189,6 +190,6 @@ namespace ofxImGui
 	Gui::~Gui()
 	{
 		close();
-		ImGui::Shutdown();
+		ImGui::DestroyContext();
 	}
 }
