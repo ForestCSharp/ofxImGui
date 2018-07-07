@@ -104,6 +104,7 @@ namespace ofxImGui
 		ofEnableArbTex();
 		loadedTextures.push_back(texture);
 		return texture->getTextureData().textureID;
+		ofDisableArbTex();
 	}
 
 	//--------------------------------------------------------------
